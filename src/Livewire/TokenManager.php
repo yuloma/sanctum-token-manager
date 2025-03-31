@@ -23,8 +23,7 @@ class TokenManager extends Component
 
         $token = auth()->user()->createToken($this->name);
 
-        $tokenStr = explode('|', $token->plainTextToken)[1];
-        session()->flash('token', $tokenStr);
+        session()->flash('token', $token->plainTextToken);
 
         $this->tokens = auth()->user()->tokens;
     }
